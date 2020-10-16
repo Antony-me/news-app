@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+    <title>Flask-news</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+<body>
+    <div class="jumbotron"> 
+        <h1>My News App</h1>
+    </div>
+    <div class="container">
+
+        {%for news, des, i in content%}
+        <img src="{{i}}" alt="">
+        <h4>News:</h4> {{news}}
+        <h5>Descrption:</h5>{{desc}}
+        {%endfor%}
+    </div>
+    
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</html>
