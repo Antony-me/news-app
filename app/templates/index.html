@@ -7,7 +7,7 @@
 
     {% block styles%}
         {{ super() }}
-        <!-- <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}"> -->
+        <link rel="stylesheet" href="{{url_for('static',filename='css/styls.css')}}">
     {% endblock %}
 
 </head>
@@ -17,19 +17,13 @@
 <body>
     
     <div class="jumbotron"> 
+        <div class="container">
+            <form>
+                <input type="text" name="news_query" placeholder="Search for news Sourc eg bbc-news" class="form-control">
+                <input type="submit"  value="Submit" class="btn btn-default">
+            </form>
+        </div>
         <h2 style="text-align:center">Welcome to Todays Headlines</h2>
-        <!-- {%for items in headline %}<br>
-
-        <div class="card" style="width:400px">
-            <img class="card-img-top" src='{{items.urlToImage}}' alt="Card image">
-            <div class="card-body">
-              <h4 class="card-title">{{items.title}}</h4>
-              <p class="card-text">{{items.content}}. <br>
-                <em>Published by </em> <strong>{{items.source.name}}</strong> on {{items.publishedAt}}</p>
-              <a href=""{{items.url}}"" class="btn btn-primary">Read more</a>
-            </div>
-          </div>
-          {%endfor%} -->
          <div class="container">
             <div class="card">
                 <div class="card-body">
