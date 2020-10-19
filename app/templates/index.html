@@ -10,11 +10,12 @@
         <h1>My News App</h1>
     </div>
     <div class="container">
+        {%for items in headline %}:
 
-        {%for news_articles , des, i in content%}
-        <img src="{{i}}" alt="">
-        <h4>News:</h4> {{news_articles}}
-        <h5>Descrption:</h5>{{desc}}
+        <h1>Description</h1>{{items.description}}
+
+       
+
         {%endfor%}
     </div>
     

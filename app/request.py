@@ -5,15 +5,11 @@ from newsapi import NewsApiClient
 
 News = news.News
 
-def get_news(everything):
+def get_news(headlines):
 
     newsapi =NewsApiClient(api_key='7d93df81198e4704b7a7a1a88d2e652b')
 
-    data = newsapi.get_everything(q= 'jupyter lab', language= 'en', page_size=20)
+    headlines = newsapi.get_top_headlines(sources ="bbc-news")
 
-
-    news_articles = data['articles']
-
-
-    return news_articles
+    return headlines
 
