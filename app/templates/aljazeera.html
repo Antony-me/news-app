@@ -1,3 +1,4 @@
+{% extends 'base.html'%}
 <!DOCTYPE html>
 <head>
     <title>Flask-news</title>
@@ -5,11 +6,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 </head>
+{% block content %}
 <body>
     <div class="jumbotron"> 
         <h2 style="text-align:center">Today In Aljazeera's headlines</h2>
         <div class="container">
-            {%for items in aljazeera %}<br>
+            {%for items in headline %}<br>
             <h3>{{items.title}}</h3> <br>
             <img src='{{items.urlToImage}}' alt="Image"> <br>
             <h4>{{items.description}}<br></h4>
@@ -24,3 +26,4 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </html>
+{% endblock %}

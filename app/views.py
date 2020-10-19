@@ -21,17 +21,18 @@ def index():
 def bbc():
 
     bbc = get_bbc_news('headlines')
-    headline =  bbc['articles']
+    bbc_news =  bbc['articles']
+    
 
 
-    return render_template('bbc.html', bbc = headline)
+    return render_template('bbc.html', headline = bbc_news )
 
 @app.route('/aljazeera')
 def aljazeera():
 
     aljazeera = get_aljazeera_news('headlines')
-    headline =  aljazeera['articles']
+    aljazeera =  aljazeera['articles']
 
 
-    return render_template('aljazeera.html', aljazeera = headline)
+    return render_template('aljazeera.html', headline = aljazeera)
 
