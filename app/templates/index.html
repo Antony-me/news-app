@@ -11,9 +11,9 @@
     </div>
     <div class="container">
 
-        {%for news, des, i in content%}
+        {%for news_articles , des, i in content%}
         <img src="{{i}}" alt="">
-        <h4>News:</h4> {{news}}
+        <h4>News:</h4> {{news_articles}}
         <h5>Descrption:</h5>{{desc}}
         {%endfor%}
     </div>
