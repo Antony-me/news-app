@@ -3,7 +3,7 @@ from flask import render_template,request,redirect,url_for
 from app import app
 
 
-from .request import get_news
+from .request import get_aljazeera_news, get_bbc_news, get_news
 
 @app.route('/')
 def index():
@@ -15,37 +15,23 @@ def index():
 
     headline = news['articles']
 
-    for items in news['articles']:
-
-        title = items['title']
-        description = items['description']
-
-       
-    # news = get_news('everything')
-
-    # first= [news][0]
-
-    # title = f'{news.title}'
-
-    # urlToImage = []
-    # description = []
-    # content = []
-    # url = []
-    # publishedAt = []
-
-
-    
-
-
-    # for i in range(len(articles)):
-    #     news_articles = articles[i]
-
-    #     title.append(news_articles['title'])
-    #     urlToImage.append(news_articles['urlToImage'])
-    #     description.append(news_articles[description])
-    #     content.append(news_articles[content])
-    #     url.append(news_articles[url])
-    #     publishedAt.append(news_articles[publishedAt])
-
-
     return render_template('index.html', headline = headline)
+
+@app.route('/bbc')
+def bbc():
+
+    bbc = get_bbc_news('headlines')
+    headline =  bbc['articles']
+
+
+    return render_template('bbc.html', bbc = headline)
+
+@app.route('/aljazeera')
+def aljazeera():
+
+    aljazeera = get_aljazeera_news('headlines')
+    headline =  aljazeera['articles']
+
+
+    return render_template('aljazeera.html', aljazeera = headline)
+

@@ -7,15 +7,14 @@
 </head>
 <body>
     <div class="jumbotron"> 
-        <h2 style="text-align:center">Welcome to Todays Headlines</h2>
+        <h2 style="text-align:center">Today In Aljazeera's headlines</h2>
         <div class="container">
-            {%for items in headline %}<br>
+            {%for items in aljazeera %}<br>
             <h3>{{items.title}}</h3> <br>
             <img src='{{items.urlToImage}}' alt="Image"> <br>
             <h4>{{items.description}}<br></h4>
             <p>{{items.content}} <a href="{{items.url}}" target="_blank">Read More</a></p>
             <p><em>Published by </em> <strong>{{items.source.name}}</strong> on {{items.publishedAt}} </p>
-
             {%endfor%}
         </div>
     </div>

@@ -9,7 +9,23 @@ def get_news(headlines):
 
     newsapi =NewsApiClient(api_key='7d93df81198e4704b7a7a1a88d2e652b')
 
+    headlines = newsapi.get_top_headlines(sources ="")
+
+    return headlines
+
+
+def get_bbc_news(headlines):
+
+    newsapi =NewsApiClient(api_key='7d93df81198e4704b7a7a1a88d2e652b')
+
     headlines = newsapi.get_top_headlines(sources ="bbc-news")
 
     return headlines
 
+def get_aljazeera_news(headlines):
+
+    newsapi =NewsApiClient(api_key='7d93df81198e4704b7a7a1a88d2e652b')
+
+    headlines = newsapi.get_top_headlines(sources ="al-jazeera-english")
+
+    return headlines
