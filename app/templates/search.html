@@ -14,7 +14,7 @@
 {% block content %}
 <body>
     <div class="jumbotron"> 
-        <h2 style="text-align:center">BBC TODAY'S HEADLINES</h2>
+        <h3 style="text-align:center">{{title}}</h3>
         <div class="container">
             {%for items in news.articles %}<br>
             <h3>{{items.title}}</h3> <br>

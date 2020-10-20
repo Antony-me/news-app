@@ -32,12 +32,12 @@ def search(keyword):
     View function to display the search results
     '''
     news_name_list =keyword.split(" ")
-    # movie_name_format = "+".join(movie_name_list)
+  
     searched_news = search_news(keyword)
 
-    title = f'search results for {news_name_list}'
+    title = f'SEARCH RESULT FOR   {news_name_list}'
     
-    return render_template('search.html',news = searched_news)
+    return render_template('search.html',title = title, news = searched_news)
 
 
 
