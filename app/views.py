@@ -1,31 +1,75 @@
-from flask import Flask, render_template
-from newsapi import NewsApiClient
+from types import new_class
+from flask import render_template,request,redirect,url_for
+from app import app
 
 
-app = Flask(__name__)
+
+from .request import get_abc_news, get_aljazeera_news, get_bbc_news, get_news, search_news
 
 @app.route('/')
-def Index():
-    newsapi =NewsApiClient(api_key="7d93df81198e4704b7a7a1a88d2e652b")
-    topheadlines = newsapi.get_top_headlines(sources ="bbc-news")
-    """
+def index():
+    '''
     docstring
-    """
-    articles =topheadlines['articles']
+    '''
 
-    desc =[]
-    news = []
-    img =[]
+    news = get_news('headlines')
+
+    headline = news['articles']
+
+    search_news = request.args.get('news_query')
+
+    if search_news:
+
+        return redirect(url_for('search',keyword =search_news))
+    else:
+
+        return render_template('index.html', headline = headline)
 
 
-    for i in range(len(articles)):
-        myarticles = articles[i]
+@app.route('/search/<keyword>')
+def search(keyword):
+    '''
+    View function to display the search results
+    '''
+    news_name_list =keyword.split(" ")
+  
+    searched_news = search_news(keyword)
+
+    title = f'SEARCH RESULT FOR   {news_name_list}'
+    
+    return render_template('search.html',title = title, news = searched_news)
 
 
-        news.append(myarticles['title'])
-        desc.append(myarticles['description'])
-        img.append(myarticles['urlToImage'])
 
-    mylist = zip(news, desc, img)
 
-    return render_template('index', context = mylist)
+
+@app.route('/bbc')
+def bbc():
+
+    bbc = get_bbc_news('headlines')
+    bbc_news =  bbc['articles']
+    
+
+
+    return render_template('bbc.html', headline = bbc_news )
+
+@app.route('/aljazeera')
+def aljazeera():
+
+    aljazeera = get_aljazeera_news('headlines')
+    aljazeera =  aljazeera['articles']
+
+
+    return render_template('aljazeera.html', headline = aljazeera)
+
+
+@app.route('/abc')
+def abc():
+
+    abc = get_abc_news('headlines')
+    abc = abc['articles']
+
+
+    return render_template('abc.html', headline = abc)
+
+
