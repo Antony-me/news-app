@@ -1,19 +1,18 @@
 {% extends 'base.html'%}
 <!DOCTYPE html>
 <head>
-    <title>aljazeera</title>
-
+    <title>ABC-news</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
     {% block styles%}
         {{ super() }}
         <link rel="stylesheet" href="{{url_for('static',filename='css/styls.css')}}">
     {% endblock %}
-
 </head>
 {% block content %}
 <body>
     <div class="jumbotron"> 
-        <h2 style="text-align:center">TODAY IN ALJAZEERA HEADLINES</h2>
+        <h2 style="text-align:center">WELCOME TO ABC TODAY</h2>
         <div class="container">
             {%for items in headline %}<br>
             <h3>{{items.title}}</h3> <br>
@@ -30,4 +29,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </html>
+
 {% endblock %}

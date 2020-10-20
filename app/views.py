@@ -4,7 +4,7 @@ from app import app
 
 
 
-from .request import get_aljazeera_news, get_bbc_news, get_news, search_news
+from .request import get_abc_news, get_aljazeera_news, get_bbc_news, get_news, search_news
 
 @app.route('/')
 def index():
@@ -16,14 +16,32 @@ def index():
 
     headline = news['articles']
 
-    search_movie = request.args.get('news_query')
+    search_news = request.args.get('news_query')
 
     if search_news:
 
-        return redirect(url_for('search',news_name=search_news))
+        return redirect(url_for('search',keyword =search_news))
     else:
 
         return render_template('index.html', headline = headline)
+
+
+@app.route('/search/<keyword>')
+def search(keyword):
+    '''
+    View function to display the search results
+    '''
+    news_name_list =keyword.split(" ")
+    # movie_name_format = "+".join(movie_name_list)
+    searched_news = search_news(keyword)
+
+    title = f'search results for {news_name_list}'
+    
+    return render_template('search.html',news = searched_news)
+
+
+
+
 
 @app.route('/bbc')
 def bbc():
@@ -43,4 +61,15 @@ def aljazeera():
 
 
     return render_template('aljazeera.html', headline = aljazeera)
+
+
+@app.route('/abc')
+def abc():
+
+    abc = get_abc_news('headlines')
+    abc = abc['articles']
+
+
+    return render_template('abc.html', headline = abc)
+
 

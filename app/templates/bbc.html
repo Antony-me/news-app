@@ -5,14 +5,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
     {% block styles%}
-        <!-- {{ super() }} -->
+        {{ super() }}
         <link rel="stylesheet" href="{{url_for('static',filename='css/styls.css')}}">
     {% endblock %}
 </head>
 {% block content %}
 <body>
     <div class="jumbotron"> 
-        <h2 style="text-align:center">BBC Today's Headlines</h2>
+        <h2 style="text-align:center">BBC TODAY'S HEADLINES</h2>
         <div class="container">
             {%for items in headline %}<br>
             <h3>{{items.title}}</h3> <br>

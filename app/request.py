@@ -48,7 +48,45 @@ def search_news(keyword):
 
         search_results = search_news_response
 
+        if search_news_response['articles']:
+            search_news_list = search_news_response['articles']
+            search_movie_results = process_results(search_news_list)
+
+
+
 
     return search_results
+
+
+def process_results(headlines):
+    '''
+    Function  that processes the movie result and transform them to a list of Objects
+
+    Args:
+        movie_list: A list of dictionaries that contain movie details
+
+    Returns :
+        movie_results: A list of movie objects
+    '''
+    search_results = []
+    for items in headlines:
+        title = items.get('title')
+        description= items.get('description')
+        urlToImage= items.get('urlToImage')
+        content = items.get('content')
+        publishedAt = items.get('publishedAt')
+        source = items.get('source')
+
+
+    return search_results
+
+
+def get_abc_news(headlines):
+
+    newsapi =NewsApiClient(api_key='7d93df81198e4704b7a7a1a88d2e652b')
+
+    headlines = newsapi.get_top_headlines(sources ="abc-news")
+
+    return headlines
 
 

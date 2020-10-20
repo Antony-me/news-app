@@ -4,6 +4,7 @@
     <title>Flask-news</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap" rel="stylesheet">
 
     {% block styles%}
         {{ super() }}
@@ -16,14 +17,14 @@
 
 <body>
     
-    <div class="jumbotron"> 
+    <div class="jumbotron" style="color: black;"> 
         <div class="container">
             <form>
-                <input type="text" name="news_query" placeholder="Search for news Sourc eg bbc-news" class="form-control">
+                <input type="text" name="news_query" placeholder="Search for news title e.g Arsenal" class="form-control">
                 <input type="submit"  value="Submit" class="btn btn-default">
             </form>
         </div>
-        <h2 style="text-align:center">Welcome to Todays Headlines</h2>
+        <h2 style="text-align:center">THIS ARE THE TOP HEADLINES TODAY</h2>
          <div class="container">
             <div class="card">
                 <div class="card-body">
