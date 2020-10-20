@@ -17,7 +17,7 @@ def index():
 
     if search_news:
 
-        return redirect(url_for('search',keyword =search_news))
+        return redirect(url_for('main.search',keyword =search_news))
     else:
 
         return render_template('index.html', headline = headline)
@@ -32,7 +32,7 @@ def search(keyword):
   
     searched_news = search_news(keyword)
 
-    title = f'SEARCH RESULT FOR {news_name_list}'
+    title = f'SEARCH RESULT FOR   {news_name_list}'
     
     return render_template('search.html',title = title, news = searched_news)
 

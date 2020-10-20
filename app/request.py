@@ -56,10 +56,7 @@ def search_news(keyword):
     '''
     Function that returns the top headlines from a search query
     '''
-
-    apikey = api_key
-
-    search_news_url = 'https://newsapi.org/v2/everything?q={}&apiKey={}'.format(keyword, apikey)
+    search_news_url = 'https://newsapi.org/v2/everything?q={}&apiKey=7d93df81198e4704b7a7a1a88d2e652b'.format(keyword)
     with urllib.request.urlopen(search_news_url) as url:
         search_news_data = url.read()
         search_news_response = json.loads(search_news_data)
