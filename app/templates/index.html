@@ -8,24 +8,22 @@
 
     {% block styles%}
         {{ super() }}
-        <link rel="stylesheet" href="{{url_for('static',filename='css/styls.css')}}">
+        <link rel="stylesheet" href="{{url_for('static',filename='css/stylez.css')}}">
     {% endblock %}
 
 </head>
 
 {% block content %}
 
-<body>
-    
+<body> 
     <div class="jumbotron" style="color: black;"> 
-        <div class="container">
+         <div class="container">
+            <h2 style="text-align:center">THIS ARE THE TOP HEADLINES TODAY</h2> <hr>
             <form>
                 <input type="text" name="news_query" placeholder="Search for news title e.g kenya" class="form-control">
                 <input type="submit"  value="Submit" class="btn btn-default" style="margin: auto;">
             </form>
-        </div>
-        <h2 style="text-align:center">THIS ARE THE TOP HEADLINES TODAY</h2>
-         <div class="container">
+            <hr>
             <div class="card">
                 <div class="card-body">
                     {%for items in headline %}<br>

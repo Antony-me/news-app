@@ -1,0 +1,30 @@
+*{
+    font-family:'Antic Didone', serif;
+    color: rgb(1, 1, 31);
+}
+ 
+.jumbotron{
+    margin: auto;
+}
+
+
+
+
+h1, h3, h4, h5{
+    font-weight: bold;
+    color: rgb(223, 6, 6);
+}
+
+h2{
+    font-family: 'Antic Didone', serif;
+    font-weight: bolder;
+}
+
+img{
+    width:80%;
+    margin: auto;
+}
+
+form input{
+    margin: auto;
+}

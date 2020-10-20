@@ -1,12 +1,9 @@
-from types import new_class
 from flask import render_template,request,redirect,url_for
-from app import app
+from flask import render_template,request,redirect,url_for
+from . import main
+from ..request import get_abc_news, get_aljazeera_news, get_bbc_news, get_news, search_news
 
-
-
-from .request import get_abc_news, get_aljazeera_news, get_bbc_news, get_news, search_news
-
-@app.route('/')
+@main.route('/')
 def index():
     '''
     docstring
@@ -26,7 +23,7 @@ def index():
         return render_template('index.html', headline = headline)
 
 
-@app.route('/search/<keyword>')
+@main.route('/search/<keyword>')
 def search(keyword):
     '''
     View function to display the search results
@@ -35,7 +32,7 @@ def search(keyword):
   
     searched_news = search_news(keyword)
 
-    title = f'SEARCH RESULT FOR   {news_name_list}'
+    title = f'SEARCH RESULT FOR {news_name_list}'
     
     return render_template('search.html',title = title, news = searched_news)
 
@@ -43,7 +40,7 @@ def search(keyword):
 
 
 
-@app.route('/bbc')
+@main.route('/bbc')
 def bbc():
 
     bbc = get_bbc_news('headlines')
@@ -53,7 +50,7 @@ def bbc():
 
     return render_template('bbc.html', headline = bbc_news )
 
-@app.route('/aljazeera')
+@main.route('/aljazeera')
 def aljazeera():
 
     aljazeera = get_aljazeera_news('headlines')
@@ -63,7 +60,7 @@ def aljazeera():
     return render_template('aljazeera.html', headline = aljazeera)
 
 
-@app.route('/abc')
+@main.route('/abc')
 def abc():
 
     abc = get_abc_news('headlines')
@@ -71,5 +68,3 @@ def abc():
 
 
     return render_template('abc.html', headline = abc)
-
-

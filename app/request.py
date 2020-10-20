@@ -1,14 +1,25 @@
 import newsapi
-from app import app
-import urllib.request,json
-from .models import news
 from newsapi import NewsApiClient
+import urllib.request,json
+from .models import News
 
-News = news.News
+api_key = None
+# Getting the movie base url
+base_url = None
 
-api_key = app.config['NEWS_API_KEY']
+
+def configure_request(app):
+    global api_key,base_url
+    api_key = app.config['NEWS_API_KEY']
+    base_url = app.config['NEWS_API_BASE_URL']
+
+
 
 def get_news(headlines):
+
+    '''
+    Function that returns the top headlines from numerous sources
+    '''
     
     newsapi =NewsApiClient(api_key)
 
@@ -19,6 +30,9 @@ def get_news(headlines):
 
 def get_bbc_news(headlines):
 
+    '''
+    Function that returns the top headlines from BBC_news
+    '''
     newsapi =NewsApiClient(api_key)
 
     headlines = newsapi.get_top_headlines(sources ="bbc-news")
@@ -27,6 +41,10 @@ def get_bbc_news(headlines):
 
 def get_aljazeera_news(headlines):
 
+    '''
+    Function that returns the top headlines from Aljazeera_news
+    '''
+
     newsapi =NewsApiClient(api_key)
 
     headlines = newsapi.get_top_headlines(sources ="al-jazeera-english")
@@ -34,6 +52,10 @@ def get_aljazeera_news(headlines):
     return headlines
 
 def search_news(keyword):
+
+    '''
+    Function that returns the top headlines from a search query
+    '''
 
     apikey = api_key
 
@@ -75,6 +97,10 @@ def process_results(headlines):
 
 
 def get_abc_news(headlines):
+
+    '''
+    Function that returns the top headlines from ABC_news
+    '''
 
     newsapi =NewsApiClient(api_key)
 
