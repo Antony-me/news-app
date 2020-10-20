@@ -8,13 +8,13 @@
 
     {% block styles%}
         {{ super() }}
-        <link rel="stylesheet" href="{{url_for('static',filename='css/styls.css')}}">
+        <link rel="stylesheet" href="{{url_for('static',filename='css/stylz.css')}}">
     {% endblock %}
 </head>
 {% block content %}
 <body>
     <div class="jumbotron"> 
-        <h3 style="text-align:center">{{title}}</h3>
+        <h2 style="text-align:center">{{title}}</h2> <hr>
         <div class="container">
             {%for items in news.articles %}<br>
             <h3>{{items.title}}</h3> <br>
