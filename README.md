@@ -29,7 +29,9 @@ Python-Pip3
 ##### Setup Instructions and Installation
 - Clone the repository to a directory in you computer. Link to repo https://github.com/Antony-me/news-app
 - Open terminal command line then navigate to the directory.
-- Using python3 run the run.py file.
+- Run chmod a+x start.sh
+- ./start.sh to run the app
+
 
 ## Interactive Input
 It has a search button
